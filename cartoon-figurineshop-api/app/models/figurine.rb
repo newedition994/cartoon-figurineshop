@@ -1,0 +1,2 @@
+class Figurine < ApplicationRecord
+end

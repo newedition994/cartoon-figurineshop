@@ -5,3 +5,10 @@ Routes
 # POST /api/figurines
 # PUT /api/figurines/:id
 # DELETE /api/figurines/:id -->
+
+<!-- Figurine Model
+
+#name
+#price
+#img_url
+#size -->

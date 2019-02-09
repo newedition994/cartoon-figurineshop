@@ -1,6 +1,6 @@
 class Api::FigurinesController < ApplicationController
 
-    before :set_figurine, only: [:show, :update, :destroy]
+    before_action :set_figurine, only: [:show, :update, :destroy]
     
     def index
         render json: Figurine.all
@@ -11,7 +11,7 @@ class Api::FigurinesController < ApplicationController
         if figurine.save
             render json: figurine
         else
-            render json: (message: figurine.errors), status: 400 
+            render json: { message: @figurine.errors }, status: 400 
         end
     end
 
@@ -23,15 +23,15 @@ class Api::FigurinesController < ApplicationController
         if @figurine.update(figurine_params)
             render json: @figurine
         else
-            render json: (message: figurine.errors), status: 400 
+            render json: { message: @figurine.errors }, status: 400 
         end
     end
 
     def destroy
         if @figurine.destroy
-            render json: ( message: "It was successfully deleted!!"), status: 204
+            render json: { message: "It was successfully deleted!!" }, status: 204
         else
-            render json: ( message: "Unable to destroy figurine"), status: 400
+            render json: { message: "Unable to destroy figurine" }, status: 400
         end
     end
 

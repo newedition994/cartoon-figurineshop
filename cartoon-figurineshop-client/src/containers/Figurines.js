@@ -4,7 +4,6 @@ import './Figurines.css';
 const Figurines = (props) => (
     <div className="FigurineContainer">
         <h1>Figurines Component</h1>
-        {/* Map error for some reason returns null */}
         {props.figurines.map(figurine =>
             <div key={figurine.id} className="FigurineCard">
                 <h3>{figurine.name}</h3>

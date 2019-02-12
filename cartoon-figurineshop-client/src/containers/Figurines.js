@@ -1,17 +1,13 @@
 import React from 'react';
 import './Figurines.css';
+import FigurineDisplay from '../components/FigurinesDisplay';
+import FigurineForm from './FigurineForm';
 
 const Figurines = (props) => (
     <div className="FigurineContainer">
         <h1>Figurines Component</h1>
-        {props.figurines.map(figurine =>
-            <div key={figurine.id} className="FigurineCard">
-                <h3>{figurine.name}</h3>
-                <p>Price: ${figurine.price}</p>
-                <img className="FigurineImg" src={figurine.img_url} alt={figurine.name} />
-                <p>Size: {figurine.size}</p>
-            </div>
-        )}
+        {props.figurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
+        <FigurineForm />
     </div>
 );
 

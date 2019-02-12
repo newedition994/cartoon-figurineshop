@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App.js';
 import * as serviceWorker from './serviceWorker';
+import store from './store.js';
 
 ReactDOM.render(
-    <App />,
+    <App store={store} />,
     document.getElementById('root')
 );
 
@@ -13,3 +14,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+

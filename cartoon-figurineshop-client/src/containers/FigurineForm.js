@@ -5,7 +5,7 @@ class FigurineForm extends Component {
     render() {
         return (
             <div>
-                Create a Figurine to the database
+                Create a Figurine
                 <form>
 
                 </form>

@@ -7,10 +7,7 @@ export default (state = {
 
     switch (action.type) {
         case 'UPDATED_DATA':
-            return action.figurineFormData
-
-        case 'CREATE_FIGURINE_SUCCESS':
-            return state.concat(action.figurine);
+            return action.figurineFormData;
 
         default:
             return state;

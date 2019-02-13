@@ -5,9 +5,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import figurines from './reducers/figurines';
+import figurineFormData from './reducers/figurineFormData';
 
 const reducers = combineReducers({
-    figurines: figurines
+    figurines,
+    figurineFormData
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;

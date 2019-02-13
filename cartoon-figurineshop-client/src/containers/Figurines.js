@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import './Figurines.css';
 import FigurineDisplay from '../components/FigurinesDisplay';
 import FigurineForm from './FigurineForm';
+import { getFigurines } from '../actions/figurines';
 
 class Figurines extends Component {
 
     componentDidMount() {
-        this.props.dispatch({
-            type: 'GET_FIGURINES_SUCCESS',
-            figurines: [{ name: "Okoye", price: 12, img_url: "", size: 3 }]
-        })
+        this.props.getFigurines()
     }
 
     render() {
@@ -30,4 +28,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps)(Figurines);
+export default connect(mapStateToProps, { getFigurines })(Figurines);

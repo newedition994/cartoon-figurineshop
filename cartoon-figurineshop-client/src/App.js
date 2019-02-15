@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Figurines from './Figurines.js';
+import Figurines from './containers/Figurines.js';
 import './App.css'
 
 

@@ -17,6 +17,7 @@ class FigurineForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
+        debugger
         this.props.addFirgurine(this.props.figurineFormData)
     }
 
@@ -43,8 +44,8 @@ class FigurineForm extends Component {
                         <label htmlFor="size">Size:</label>
                         <input type="text" onChange={this.handleOnChange} name="size" value={size} />
                     </div>
+                    <button type="submit">Add to collection</button>
                 </form>
-                <button type="submit">Add to collection</button>
             </div>
         )
     }

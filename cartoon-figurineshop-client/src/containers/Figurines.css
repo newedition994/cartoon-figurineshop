@@ -2,6 +2,11 @@
     padding: 2px;
 }
 
+.NamePlate{
+    background: lavender;
+    padding: 10px;
+}
+
 .FigurineCard {
     float: left;
     margin: 1.5%;

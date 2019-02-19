@@ -22,6 +22,24 @@
   color: #61dafb;
 }
 
+.nav-btn{
+  border: none;
+  color: white;
+  background: slateblue;
+  margin: 5px;
+}
+
+.nav-btn:hover{
+  color: slateblue;
+  border: 1px solid slateblue;
+  background: violet;
+}
+
+.nav-btn:focus {
+  outline: 0;
+  background: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

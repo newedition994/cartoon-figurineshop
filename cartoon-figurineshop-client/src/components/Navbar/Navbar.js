@@ -1,11 +1,13 @@
 import React from 'react'
-// import About from './About.js'
+// import routes from './route.js'
 
-const Navbar = props =>
+
+
+const Navbar = ({ changePage }) =>
     <div>
-        <button className="nav-btn">About</button>
-        <button className="nav-btn">Cost</button>
-        <button className="nav-btn" >Create a Figurine</button>
+        <button className="nav-btn" onClick={() => changePage('about')}>About</button>
+        <button className="nav-btn" onClick={() => changePage('price')}>Cost</button>
+        <button className="nav-btn" onClick={() => changePage('createFigurine')}>Create a Figurine</button>
     </div>
 
 

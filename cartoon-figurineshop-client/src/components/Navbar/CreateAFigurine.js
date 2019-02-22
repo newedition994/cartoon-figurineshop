@@ -1,5 +1,5 @@
 import React from 'react'
-import FigurineForm from '../containers/FigurineForm';
+import FigurineForm from '../../containers/FigurineForm';
 
 
 // see the firgurineForm on another page and route

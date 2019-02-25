@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
-// import { getFigurines } from '../actions/figurines';
+import { connect } from 'react-redux';
+import { getFigurines } from '../../actions/figurines';
+import '../../containers/Figurines.css'
+import FigurineDisplay from '../FigurinesDisplay';
+
 
 class Cost extends Component {
+
+    componentDidMount() {
+        this.props.getFigurines()
+    }
 
 
 
     render() {
         return (
-            <div>
-
+            <div className="FigurineContainer">
+                {/* need assistance with writing the sort function that will work in this rendering */}
+                {this.props.figurines.sort((a, b) => a.figurine.price > b.figurine.price).map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine.price} />)}
             </div>
         )
     }
 }
 
-export default Cost
+const mapStateToProps = (state) => {
+    return ({
+        figurines: state.figurines
+    })
+}
+
+export default connect(mapStateToProps, { getFigurines })(Cost);

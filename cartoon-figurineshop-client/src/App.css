@@ -24,8 +24,9 @@
 
 .nav-btn{
   border: none;
+  border-radius: 8px;
   color: white;
-  background: slateblue;
+  background: hsla(0, 100%, 50%, 0.3);
   margin: 5px;
 }
 
@@ -38,6 +39,12 @@
 .nav-btn:focus {
   outline: 0;
   background: white;
+}
+
+.form-display {
+  border: 5px solid purple;
+  padding: 9px;
+  margin: 5px;
 }
 
 @keyframes App-logo-spin {

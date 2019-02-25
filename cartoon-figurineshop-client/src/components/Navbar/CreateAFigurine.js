@@ -5,7 +5,7 @@ import FigurineForm from '../../containers/FigurineForm';
 // see the firgurineForm on another page and route
 
 const MakeAFigurine = () =>
-    <div>
+    <div className="form-display">
         <FigurineForm />
     </div>
 

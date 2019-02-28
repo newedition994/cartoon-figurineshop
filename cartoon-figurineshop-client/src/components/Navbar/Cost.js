@@ -30,7 +30,6 @@ class Cost extends Component {
     }
 
     componentDidMount() {
-        // debugger
         const figurine = getFigurines
         this.setState({
             costsMore: true,

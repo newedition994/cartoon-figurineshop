@@ -41,11 +41,11 @@ class Cost extends Component {
 
     render() {
         debugger
-        const { figurine } = this.state
+        const getFigurines = this.state
         return (
             <div className="FigurineContainer">
                 {/* need assistance with writing the sort function that will work in this rendering */}
-                {figurine.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine.price} />)}
+                {getFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine.price} />)}
 
             </div>
         )

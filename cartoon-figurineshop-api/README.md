@@ -1,14 +1,5 @@
-Routes 
+# Cartoon Figurineshop API - Ruby on Rails 
 
-<!-- # GET /api/figurines
-# GET /api/figurines/:id
-# POST /api/figurines
-# PUT /api/figurines/:id
-# DELETE /api/figurines/:id -->
+# Background
 
-<!-- Figurine Model
-
-#name
-#price
-#img_url
-#size -->
+I have used Rails to initiate the API for my figurine database and I use POSTGRESql to store the database.

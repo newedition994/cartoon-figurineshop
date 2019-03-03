@@ -3,8 +3,14 @@ class Api::FigurinesController < ApplicationController
     before_action :set_figurine, only: [:show, :update, :destroy]
     
     def index
-        render json: Figurine.all
+        render json: Figurine.all 
     end
+
+    def costIndex 
+        sortedFigurines = Figurine.all.sort_by { |figurine| figurine.price }
+
+        render json: sortedFigurines
+    end 
 
     def create
         figurine = Figurine.new(figurine_params)

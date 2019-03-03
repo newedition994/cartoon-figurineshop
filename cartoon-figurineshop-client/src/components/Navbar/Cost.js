@@ -13,40 +13,58 @@ class Cost extends Component {
             figurine: [],
             costsMore: true
         }
+
+        this.getSortedFigurines = this.getSortedFigurines.bind(this)
     }
 
-    sortByPrice() {
-        const { figurine } = this.state
-        let newPriceList = figurine
-        if (this.state.costsMore) {
-            newPriceList = figurine.sort((a, b) => a.price > b.price)
-        } else {
-            newPriceList = figurine.sort((a, b) => a.price < b.price)
-        }
-        this.setState({
-            costsMore: !this.state.costsMore,
-            figurine: newPriceList
-        })
-    }
+    // sortByPrice() {
+    //     const { figurine } = this.state
+    //  let newPriceList = figurine
+    //     if (this.state.costsMore) {
+    //         newPriceList = figurine.sort((a, b) => a.price > b.price)
+    //     } else {
+    //         newPriceList = figurine.sort((a, b) => a.price < b.price)
+    //     }
+    //     this.setState({
+    //         costsMore: !this.state.costsMore,
+    //         figurine: newPriceList
+    //     })
+    // }
 
     componentDidMount() {
-        const figurine = getFigurines
-        this.setState({
-            costsMore: true,
-            figurine: figurine
-        })
+        // const figurine = getFigurines
+        // this.setState({
+        //     costsMore: true,
+        //     figurine: figurine
+        // })
+
+        this.props.getFigurines()
+    }
+
+    getSortedFigurines() {
+        function compare(a, b) {
+            if (a.price < b.price) return -1
+
+            if (a.price > b.price) return 1
+
+            return 0
+        }
+
+        let { figurines } = this.props
+
+        return figurines.sort(compare)
     }
 
 
 
     render() {
-        debugger
-        const getFigurines = this.state
+        const sortedFigurines = this.getSortedFigurines()
+
+
         return (
             <div className="FigurineContainer">
                 {/* need assistance with writing the sort function that will work in this rendering */}
-                {getFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine.price} />)}
-
+                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )
     }

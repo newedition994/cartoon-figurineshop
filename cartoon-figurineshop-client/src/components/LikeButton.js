@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 
 
-class likeButton extends Component {
+class LikeButton extends Component {
 
+    state = {
+        count: 0
+    };
 
+    handleClick = () => {
+        this.setState(({ count }) => ({
+            count: count + 1
+        }));
+    };
 
     render() {
         return (
-            <button>Like this Figurine</button>
+            <button className="likes" onClick={this.handleClick}>{this.state.count}</button>
         )
     }
 }
@@ -17,4 +25,4 @@ class likeButton extends Component {
 
 // display the number of likes
 
-export default likeButton;
+export default LikeButton;

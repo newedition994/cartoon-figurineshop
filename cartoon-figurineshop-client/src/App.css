@@ -41,6 +41,12 @@
   background: white;
 }
 
+.likes:hover {
+  color: #0066ff;
+  border: 1px solid #0066ff;
+  background: #ff99c2;
+}
+
 .form-display {
   border: 5px solid purple;
   padding: 9px;

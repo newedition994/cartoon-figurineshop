@@ -17,7 +17,7 @@ class FigurineForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
-        debugger
+        //debugger
         this.props.addFirgurine(this.props.figurineFormData)
     }
 

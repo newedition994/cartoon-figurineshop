@@ -17,6 +17,7 @@ class Figurines extends Component {
                 <h1 className="NamePlate">Figurines Web App</h1>
                 {this.props.figurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
                 {/* <FigurineForm /> */}
+                {/*<likeButton /> */}
             </div>
         )
     }

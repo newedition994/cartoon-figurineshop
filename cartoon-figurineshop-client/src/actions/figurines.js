@@ -34,7 +34,9 @@ export const addFirgurine = figurine => {
             body: JSON.stringify({ figurine: figurine })
         })
             .then(response => response.json())
-            .then(figurines => dispatch(createFirgurine(figurines)))
+            .then(figurines => {
+                dispatch(createFirgurine(figurines))
+            })
             .catch(error => console.log(error))
     }
 }

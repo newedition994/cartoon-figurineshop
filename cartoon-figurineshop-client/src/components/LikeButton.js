@@ -7,6 +7,7 @@ class LikeButton extends Component {
         count: 0
     };
 
+    // build a counter to count the clicks
     handleClick = () => {
         this.setState(({ count }) => ({
             count: count + 1
@@ -15,14 +16,12 @@ class LikeButton extends Component {
 
     render() {
         return (
-            <button className="likes" onClick={this.handleClick}>{this.state.count}</button>
+            // display a button
+            <button className="likes" onClick={this.handleClick}>
+                {/* display the number of likes */}
+                {this.state.count}</button>
         )
     }
 }
-// display a button
-
-// build a counter to count the clicks
-
-// display the number of likes
 
 export default LikeButton;

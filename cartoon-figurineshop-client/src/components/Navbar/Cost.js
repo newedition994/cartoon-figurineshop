@@ -17,31 +17,14 @@ class Cost extends Component {
         this.getSortedFigurines = this.getSortedFigurines.bind(this)
     }
 
-    // sortByPrice() {
-    //     const { figurine } = this.state
-    //  let newPriceList = figurine
-    //     if (this.state.costsMore) {
-    //         newPriceList = figurine.sort((a, b) => a.price > b.price)
-    //     } else {
-    //         newPriceList = figurine.sort((a, b) => a.price < b.price)
-    //     }
-    //     this.setState({
-    //         costsMore: !this.state.costsMore,
-    //         figurine: newPriceList
-    //     })
-    // }
+
 
     componentDidMount() {
-        // const figurine = getFigurines
-        // this.setState({
-        //     costsMore: true,
-        //     figurine: figurine
-        // })
-
         this.props.getFigurines()
     }
 
     getSortedFigurines() {
+        // sort the figurines based on lowest to highest price
         function compare(a, b) {
             if (a.price < b.price) return -1
 

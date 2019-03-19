@@ -53,6 +53,31 @@
   margin: 5px;
 }
 
+.nameFilter {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: turquoise;
+  background-color: blue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.nameFilter:hover {
+  background: pink;
+}
+
+.nameFilter:active{
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

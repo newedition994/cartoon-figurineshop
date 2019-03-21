@@ -12,7 +12,8 @@ class Figurines extends Component {
         super(props)
         // this.handleClick = this.handleClick.bind(this);
         this.state = {
-            sortByName: true
+            figurines: [],
+            sortByName: false
         };
         this.sortByName = this.sortByName.bind(this);
     }
@@ -29,17 +30,21 @@ class Figurines extends Component {
 
             return 0
         }
-
-        let { figurines } = this.props
+        // why is this undefined
+        let { figurines } = this.state.figurines
 
         return figurines.sort(compare)
     }
 
     handleClick = () => {
-
+        // this.setState({ figurines => })
         // we implement the change in state 
 
         console.log('Clicked happened');
+        this.setState({ figurines: [...this.props.figurines] }, () => {
+            console.log("FInished")
+            this.sortByName()
+        })
 
         // display the return of figurines.sort(compare)
 
@@ -49,7 +54,7 @@ class Figurines extends Component {
         return (
             <div className="FigurineContainer">
                 <h1 className="NamePlate">Figurines Web App</h1>
-                <button className="nameFilter" onClick={this.handleClick}>Sort Figurines by Name</button>
+                <button className="nameFilter" onClick={this.handleClick}>Toggle Sort Figurines by Name</button>
                 {this.props.figurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )

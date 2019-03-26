@@ -11,7 +11,7 @@ class Figurines extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sortByName: "none"
+            sortOrder: "none"
         };
     }
 
@@ -22,8 +22,8 @@ class Figurines extends Component {
     handleClick = () => {
         // we implement the change in state 
 
-        const newOrder = this.state.sortOrder === "size" ? "alpha" : "size"
-
+        const newOrder = this.state.sortOrder !== "size" ? "size" : "alpha"
+        // this.setState({ [name]: value })
         this.setState({ sortOrder: newOrder }, () => {
             console.log("new state is ", this.state, "sorted array is", this.sortByName(), "sorted by size", this.sortBySize())
         })
@@ -40,9 +40,8 @@ class Figurines extends Component {
         })
     }
 
-    sortBySize = () => {
-        this.props.figurines.slice().sort((a, b) => b.size - a.size)
-    }
+    sortBySize = () => this.props.figurines.slice().sort((a, b) => b.size - a.size)
+
 
     render() {
 
@@ -51,8 +50,8 @@ class Figurines extends Component {
         return (
             <div className="FigurineContainer">
                 <h1 className="NamePlate">Figurines Web App</h1>
-                <button className="nameFilter" onClick={this.handleClick}>Toggle Sort Figurines by Name</button>
-                {/* Map Error that is unclear */}
+                <button className="nameFilter" onClick={this.handleClick}>{this.state.sortOrder === "size" ? "Sort by Size" : "Sort by Name"}</button>
+                {/* Map Error that is unclear  --- seems to be related to not being able to capture the figurines from the get figurines function*/}
                 {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )

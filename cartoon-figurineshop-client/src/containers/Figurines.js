@@ -51,7 +51,6 @@ class Figurines extends Component {
             <div className="FigurineContainer">
                 <h1 className="NamePlate">Figurines Web App</h1>
                 <button className="nameFilter" onClick={this.handleClick}>{this.state.sortOrder === "size" ? "Sort by Size" : "Sort by Name"}</button>
-                {/* Map Error that is unclear  --- seems to be related to not being able to capture the figurines from the get figurines function*/}
                 {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )

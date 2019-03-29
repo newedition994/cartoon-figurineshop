@@ -4,7 +4,6 @@ import { getFigurines } from '../../actions/figurines';
 import '../../containers/Figurines.css'
 import FigurineDisplay from '../FigurinesDisplay';
 
-
 class Cost extends Component {
 
     constructor(props) {
@@ -15,7 +14,9 @@ class Cost extends Component {
             maxPrice: ''
         }
 
-        this.getSortedFigurines = this.getSortedFigurines.bind(this)
+        this.getSortedFigurines = this.getSortedFigurines.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
 
 
@@ -47,14 +48,9 @@ class Cost extends Component {
         })
     }
 
-    filterByMaxPrice = () => {
-        return this.props.figurines.filter(
-            (figurine) => {
-                return figurine.price.indexOf(this.state.maxPrice) !== -1;
-            }
-        );
+    handleFilter(filterInput) {
+        this.setState(filterInput)
     }
-
 
     render() {
         const sortedFigurines = this.getSortedFigurines()
@@ -62,9 +58,17 @@ class Cost extends Component {
         return (
             <div className="FigurineContainer">
                 {/* need assistance with writing the sort function that will work in this rendering */}
-                <form>Max Price:<input onChange={this.handleChange} type="text" value={this.state.maxPrice} name="maxPrice"></input></form>
+                <form>Max Price:
+                    <input
+                        onChange={this.handleChange}
+                        type="text"
+                        value={this.state.maxPrice}
+                        name="maxPrice"
+                    >
+                    </input>
+                </form>
 
-                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
+                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} onFilter={this.handleFilter} />)}
             </div>
         )
     }

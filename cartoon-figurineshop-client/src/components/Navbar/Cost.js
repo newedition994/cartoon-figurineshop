@@ -11,7 +11,8 @@ class Cost extends Component {
         super(props)
         this.state = {
             figurine: [],
-            costsMore: true
+            costsMore: true,
+            maxPrice: ''
         }
 
         this.getSortedFigurines = this.getSortedFigurines.bind(this)
@@ -38,15 +39,31 @@ class Cost extends Component {
         return figurines.sort(compare)
     }
 
+    handleChange = event => {
+        const { name, value } = event.target;
+
+        this.setState({ [name]: value }, () => {
+            console.log("this new maxPrice", this.state)
+        })
+    }
+
+    filterByMaxPrice = () => {
+        return this.props.figurines.filter(
+            (figurine) => {
+                return figurine.price.indexOf(this.state.maxPrice) !== -1;
+            }
+        );
+    }
 
 
     render() {
         const sortedFigurines = this.getSortedFigurines()
 
-
         return (
             <div className="FigurineContainer">
                 {/* need assistance with writing the sort function that will work in this rendering */}
+                <form>Max Price:<input onChange={this.handleChange} type="text" value={this.state.maxPrice} name="maxPrice"></input></form>
+
                 {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )

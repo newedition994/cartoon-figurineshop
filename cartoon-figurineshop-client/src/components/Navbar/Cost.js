@@ -16,7 +16,6 @@ class Cost extends Component {
 
         this.getSortedFigurines = this.getSortedFigurines.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleFilter = this.handleFilter.bind(this);
     }
 
 
@@ -40,16 +39,15 @@ class Cost extends Component {
         return figurines.sort(compare)
     }
 
-    handleChange = event => {
-        const { name, value } = event.target;
+    handleChange = () => {
 
-        this.setState({ [name]: value }, () => {
+        const newOrder = this.state.maxPrice !== "12" ? "12" ? "9" : "6"
+
+        // trying to achieve a sort but not successful
+
+        this.setState({ maxPrice: newOrder }, () => {
             console.log("this new maxPrice", this.state)
         })
-    }
-
-    handleFilter(filterInput) {
-        this.setState(filterInput)
     }
 
     render() {
@@ -68,7 +66,7 @@ class Cost extends Component {
                     </input>
                 </form>
 
-                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} onFilter={this.handleFilter} />)}
+                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )
     }

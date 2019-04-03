@@ -42,7 +42,6 @@ class Figurines extends Component {
 
     sortBySize = () => this.props.figurines.slice().sort((a, b) => b.size - a.size)
 
-
     render() {
 
         const sortedFigurines = this.state.sortOrder === "size" ? this.sortByName() : this.sortBySize()

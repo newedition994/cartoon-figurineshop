@@ -9,6 +9,9 @@ const MakeAFigurine = () =>
         <FigurineForm />
     </div>
 
+
+// display the new figurine
+
 // import the form into the page and then export it
 
 export default MakeAFigurine

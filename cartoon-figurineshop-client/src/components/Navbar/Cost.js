@@ -9,8 +9,6 @@ class Cost extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            figurine: [],
-            costsMore: true,
             maxPrice: ''
         }
 
@@ -39,23 +37,31 @@ class Cost extends Component {
         return figurines.sort(compare)
     }
 
-    handleChange = () => {
+    handleChange = event => {
 
-        const newOrder = this.state.maxPrice !== "12" ? "12" ? "9" : "6"
+        const { name, value } = event.target;
 
         // trying to achieve a sort but not successful
 
-        this.setState({ maxPrice: newOrder }, () => {
+        this.setState({ [name]: value }, () => {
             console.log("this new maxPrice", this.state)
         })
     }
 
+    // state changes but the prices do not filter through as described
+    filterByMaxPrice = () => {
+        return this.props.figurines.filter(figurine => figurine.price <= parseInt(this.state.maxPrice));
+    }
+
     render() {
-        const sortedFigurines = this.getSortedFigurines()
+        //should a filter be added to this variable
+
+
+        const filteredFigurines = isNaN(parseInt(this.state.maxPrice)) ? this.props.figurines : this.filterByMaxPrice()
 
         return (
             <div className="FigurineContainer">
-                {/* need assistance with writing the sort function that will work in this rendering */}
+
                 <form>Max Price:
                     <input
                         onChange={this.handleChange}
@@ -66,7 +72,7 @@ class Cost extends Component {
                     </input>
                 </form>
 
-                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
+                {filteredFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
             </div>
         )
     }

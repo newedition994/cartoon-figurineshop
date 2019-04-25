@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getFigurines } from '../../actions/figurines';
 import '../../containers/Figurines.css'
 import FigurineDisplay from '../FigurinesDisplay';
 
@@ -14,12 +13,6 @@ class Cost extends Component {
 
         this.getSortedFigurines = this.getSortedFigurines.bind(this);
         this.handleChange = this.handleChange.bind(this);
-    }
-
-
-
-    componentDidMount() {
-        this.props.getFigurines()
     }
 
     getSortedFigurines() {
@@ -84,4 +77,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, { getFigurines })(Cost);
+export default connect(mapStateToProps)(Cost);

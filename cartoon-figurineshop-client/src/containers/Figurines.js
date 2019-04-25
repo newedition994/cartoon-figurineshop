@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Figurines.css';
 import FigurineDisplay from '../components/FigurinesDisplay';
-import { getFigurines } from '../actions/figurines';
 
 
 
@@ -13,10 +12,6 @@ class Figurines extends Component {
         this.state = {
             sortOrder: "none"
         };
-    }
-
-    componentDidMount() {
-        this.props.getFigurines()
     }
 
     handleClick = () => {
@@ -62,4 +57,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, { getFigurines })(Figurines);
+export default connect(mapStateToProps)(Figurines);

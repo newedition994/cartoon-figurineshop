@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import FigurineForm from '../../containers/FigurineForm';
-import FigurinesDisplay from '../../components/FigurinesDisplay';
+import FigurineDisplay from '../../components/FigurinesDisplay';
 
 
 // see the firgurineForm on another page and route
@@ -12,16 +13,25 @@ class MakeAFigurine extends Component {
     }
 
     render() {
+
+        // define figurine to get rid of the error or just use some of the information from Figurine Display and not all of it?
+        const length = this.props.figurines.length
+
         return (
             <div className="form-display">
                 <FigurineForm />
                 {/*  display the new figurine */}
-                <FigurinesDisplay />
+                {length > 0 ? <FigurineDisplay figurine={this.props.figurines[length - 1]} /> : ""}
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    return ({
+        figurines: state.figurines
+    })
+}
 
 // import the form into the page and then export it
 
-export default MakeAFigurine
+export default connect(mapStateToProps)(MakeAFigurine)

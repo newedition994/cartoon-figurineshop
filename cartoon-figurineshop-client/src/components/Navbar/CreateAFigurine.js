@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import FigurineForm from '../../containers/FigurineForm';
 
 
 // see the firgurineForm on another page and route
 
-const MakeAFigurine = () =>
-    <div className="form-display">
-        <FigurineForm />
-    </div>
+class MakeAFigurine extends Component {
+
+    render() {
+        return (
+            <div className="form-display">
+                <FigurineForm />
+            </div>
+        )
+    }
+}
 
 
 // display the new figurine

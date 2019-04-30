@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FigurineForm from '../../containers/FigurineForm';
 import FigurineDisplay from '../../components/FigurinesDisplay';
+import Modal from './Modal';
 
 
 // see the firgurineForm on another page and route
@@ -14,6 +15,8 @@ class MakeAFigurine extends Component {
 
     render() {
 
+
+
         // define figurine to get rid of the error or just use some of the information from Figurine Display and not all of it?
         const length = this.props.figurines.length
 
@@ -22,6 +25,7 @@ class MakeAFigurine extends Component {
                 <FigurineForm />
                 {/*  display the new figurine */}
                 {length > 0 ? <FigurineDisplay figurine={this.props.figurines[length - 1]} /> : ""}
+                <Modal ref={(Node) => { this.modal = Node; }} />
             </div>
         )
     }

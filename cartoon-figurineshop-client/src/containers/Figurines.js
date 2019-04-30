@@ -10,7 +10,8 @@ class Figurines extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sortOrder: "none"
+            sortOrder: "none",
+            searchName: ""
         };
     }
 
@@ -37,15 +38,32 @@ class Figurines extends Component {
 
     sortBySize = () => this.props.figurines.slice().sort((a, b) => b.size - a.size)
 
+    handleChange = (e) => {
+
+        const { value } = e.target;
+
+        this.setState({ searchName: value })
+    }
+
+    filterNames = (figurines) => {
+        return figurines.filter(figurine => figurine.name.toUpperCase().includes(this.state.searchName.toUpperCase()))
+    }
+
     render() {
 
         const sortedFigurines = this.state.sortOrder === "size" ? this.sortByName() : this.sortBySize()
 
+        const filteredsortedFigurines = this.filterNames(sortedFigurines)
+
         return (
             <div className="FigurineContainer">
                 <h1 className="NamePlate">Figurines Web App</h1>
+                <form>
+                    Search By Name: <input onChange={this.handleChange} type="text" value={this.state.searchName} />
+                </form>
                 <button className="nameFilter" onClick={this.handleClick}>{this.state.sortOrder === "size" ? "Sort by Size" : "Sort by Name"}</button>
-                {sortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
+                {filteredsortedFigurines.map(figurine => <FigurineDisplay key={figurine.id} figurine={figurine} />)}
+
             </div>
         )
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeButton from '../components/LikeButton';
+import Comment from '../components/Comment';
 
 const FigurineDisplay = ({ figurine }) =>
     <div className="FigurineCard">
@@ -8,6 +9,7 @@ const FigurineDisplay = ({ figurine }) =>
         <img className="FigurineImg" src={figurine.img_url} alt={figurine.name} />
         <p>Size: {figurine.size}</p>
         <LikeButton />
+        <Comment />
 
     </div>
 

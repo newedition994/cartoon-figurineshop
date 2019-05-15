@@ -12,6 +12,7 @@ class Figurines extends Component {
         this.state = {
             sortOrder: "none",
             searchName: ""
+            //comment: ""
         };
     }
 

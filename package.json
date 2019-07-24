@@ -2,7 +2,9 @@
   "name": "cartoon-figurineshop",
   "version": "1.0.0",
   "engines": {
-    "node": "10.11.0"
+    "node": "10.11.0",
+    "npm": "6.4.1",
+    "ruby": "2.3.3p222"
   },
   "description": "# Background",
   "main": "index.js",

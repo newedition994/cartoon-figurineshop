@@ -1,0 +1,25 @@
+{
+  "name": "cartoon-figurineshop",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.11.0"
+  },
+  "description": "# Background",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newedition994/cartoon-figurineshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newedition994/cartoon-figurineshop/issues"
+  },
+  "homepage": "https://github.com/newedition994/cartoon-figurineshop#readme"
+}

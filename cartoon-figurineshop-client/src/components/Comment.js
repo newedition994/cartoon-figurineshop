@@ -25,7 +25,7 @@ class Comment extends Component {
     render() {
         return (
             <div>
-                <p>Comments:{this.state.comments}</p>
+                <p>Comments: {this.state.comments} </p>
                 <form onSubmit={this.handleSubmit}>
                     Comments on the Figurine: <input type="text" value={this.state.comment} onChange={this.handleChange} />
                     <button>Submit</button>

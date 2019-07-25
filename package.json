@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build/. public/",
+    "build": "cd cartoon-figurineshop-client && npm install && npm run build && cd ..",
+    "deploy": "cp -a cartoon-figurineshop-client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   },
   "repository": {
